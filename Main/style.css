@@ -1,0 +1,701 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #050817;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   CITY CONTAINER
+========================= */
+
+.city {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+  overflow: hidden;
+  background: #050817;
+}
+
+/* =========================
+   SKY
+========================= */
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #030514 0%,
+    #080d25 45%,
+    #111a3d 75%,
+    #1b2550 100%
+  );
+}
+
+/* =========================
+   MOON
+========================= */
+
+.moon {
+  position: absolute;
+
+  width: clamp(50px, 9vw, 110px);
+  height: clamp(50px, 9vw, 110px);
+
+  right: 15%;
+  top: 12%;
+
+  border-radius: 50%;
+
+  background: #fff7cf;
+
+  box-shadow:
+    0 0 20px rgba(255, 247, 207, 0.5),
+    0 0 60px rgba(255, 247, 207, 0.2);
+}
+
+/* =========================
+   STARS
+========================= */
+
+.stars span {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  animation: twinkle 2s infinite alternate;
+}
+
+.stars span:nth-child(1) {
+  left: 8%;
+  top: 15%;
+}
+
+.stars span:nth-child(2) {
+  left: 18%;
+  top: 25%;
+}
+
+.stars span:nth-child(3) {
+  left: 30%;
+  top: 12%;
+}
+
+.stars span:nth-child(4) {
+  left: 40%;
+  top: 28%;
+}
+
+.stars span:nth-child(5) {
+  left: 52%;
+  top: 16%;
+}
+
+.stars span:nth-child(6) {
+  left: 65%;
+  top: 8%;
+}
+
+.stars span:nth-child(7) {
+  left: 73%;
+  top: 29%;
+}
+
+.stars span:nth-child(8) {
+  left: 82%;
+  top: 18%;
+}
+
+.stars span:nth-child(9) {
+  left: 90%;
+  top: 34%;
+}
+
+.stars span:nth-child(10) {
+  left: 13%;
+  top: 40%;
+}
+
+.stars span:nth-child(11) {
+  left: 25%;
+  top: 35%;
+}
+
+.stars span:nth-child(12) {
+  left: 46%;
+  top: 7%;
+}
+
+.stars span:nth-child(13) {
+  left: 58%;
+  top: 36%;
+}
+
+.stars span:nth-child(14) {
+  left: 78%;
+  top: 10%;
+}
+
+.stars span:nth-child(15) {
+  left: 95%;
+  top: 20%;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.25;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   CLOUDS
+========================= */
+
+.cloud {
+  position: absolute;
+
+  width: 180px;
+  height: 35px;
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  filter: blur(3px);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: inherit;
+}
+
+.cloud::before {
+  width: 70px;
+  height: 70px;
+
+  left: 30px;
+  bottom: 0;
+}
+
+.cloud::after {
+  width: 90px;
+  height: 90px;
+
+  right: 25px;
+  bottom: 0;
+}
+
+.cloud-1 {
+  top: 25%;
+  left: -200px;
+
+  animation: cloudMove 45s linear infinite;
+}
+
+.cloud-2 {
+  top: 42%;
+  left: -300px;
+
+  opacity: 0.5;
+
+  animation: cloudMove 70s linear infinite;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 500px));
+  }
+}
+
+/* =========================
+   SKYLINE
+========================= */
+
+.skyline {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  width: 200%;
+
+  height: 60%;
+
+  animation: skylineMove linear infinite;
+}
+
+/*
+    Moving twice the screen width gives
+    enough room for the duplicated-looking
+    building sequence.
+*/
+
+.skyline-far {
+  animation-duration: 45s;
+  opacity: 0.45;
+}
+
+.skyline-main {
+  animation-duration: 32s;
+}
+
+.skyline-front {
+  animation-duration: 20s;
+}
+
+/* =========================
+   BUILDINGS
+========================= */
+
+.building {
+  position: relative;
+
+  flex-shrink: 0;
+
+  background: #090d1b;
+
+  margin-right: 12px;
+
+  box-shadow:
+    inset -8px 0 rgba(0, 0, 0, 0.12),
+    inset 8px 0 rgba(255, 255, 255, 0.015);
+}
+
+/* =========================
+   FAR BUILDINGS
+========================= */
+
+.b1 {
+  width: 9vw;
+  height: 35%;
+}
+
+.b2 {
+  width: 7vw;
+  height: 55%;
+}
+
+.b3 {
+  width: 12vw;
+  height: 40%;
+}
+
+.b4 {
+  width: 6vw;
+  height: 70%;
+}
+
+.b5 {
+  width: 11vw;
+  height: 48%;
+}
+
+.b6 {
+  width: 8vw;
+  height: 62%;
+}
+
+.b7 {
+  width: 14vw;
+  height: 45%;
+}
+
+.b8 {
+  width: 7vw;
+  height: 76%;
+}
+
+.b9 {
+  width: 10vw;
+  height: 50%;
+}
+
+.b10 {
+  width: 13vw;
+  height: 65%;
+}
+
+/* =========================
+   MAIN BUILDINGS
+========================= */
+
+.m1 {
+  width: 12vw;
+  height: 55%;
+}
+
+.m2 {
+  width: 8vw;
+  height: 75%;
+}
+
+.m3 {
+  width: 15vw;
+  height: 48%;
+}
+
+.m4 {
+  width: 9vw;
+  height: 85%;
+}
+
+.m5 {
+  width: 13vw;
+  height: 60%;
+}
+
+.m6 {
+  width: 7vw;
+  height: 72%;
+}
+
+.m7 {
+  width: 16vw;
+  height: 50%;
+}
+
+.m8 {
+  width: 10vw;
+  height: 80%;
+}
+
+/* =========================
+   FOREGROUND BUILDINGS
+========================= */
+
+.f1 {
+  width: 14vw;
+  height: 50%;
+}
+
+.f2 {
+  width: 9vw;
+  height: 78%;
+}
+
+.f3 {
+  width: 17vw;
+  height: 58%;
+}
+
+.f4 {
+  width: 11vw;
+  height: 90%;
+}
+
+.f5 {
+  width: 15vw;
+  height: 65%;
+}
+
+.f6 {
+  width: 8vw;
+  height: 82%;
+}
+
+/* =========================
+   WINDOWS
+========================= */
+
+.building::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 10px;
+
+  background-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent 65%,
+    rgba(255, 220, 120, 0.7) 65%,
+    rgba(255, 220, 120, 0.7) 75%,
+    transparent 75%
+  );
+
+  background-size: 24px 32px;
+
+  opacity: 0.55;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes skylineMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================
+   ROAD
+========================= */
+
+.road {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 13%;
+
+  min-height: 55px;
+
+  background: #05060b;
+
+  border-top: 2px solid rgba(255, 255, 255, 0.04);
+}
+
+.road-line {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent 40px,
+    rgba(255, 255, 255, 0.35) 40px,
+    rgba(255, 255, 255, 0.35) 100px,
+    transparent 100px,
+    transparent 150px
+  );
+
+  animation: roadMove 1.5s linear infinite;
+}
+
+@keyframes roadMove {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: -150px;
+  }
+}
+
+/* =========================
+   CARS
+========================= */
+
+.car {
+  position: absolute;
+
+  width: 45px;
+  height: 18px;
+
+  border-radius: 5px 8px 3px 3px;
+
+  background: #111827;
+
+  bottom: 18%;
+
+  box-shadow: 0 0 5px rgba(255, 50, 50, 0.8);
+}
+
+.car::after {
+  content: "";
+
+  position: absolute;
+
+  right: -4px;
+  top: 5px;
+
+  width: 5px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #ff4d4d;
+
+  box-shadow: 0 0 8px #ff4d4d;
+}
+
+.car-1 {
+  left: -60px;
+
+  animation: carMove 8s linear infinite;
+}
+
+.car-2 {
+  left: -150px;
+
+  bottom: 60%;
+
+  transform: scale(0.7);
+
+  animation: carMove 11s linear infinite;
+}
+
+@keyframes carMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 250px));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .city {
+    min-height: 100svh;
+  }
+
+  .moon {
+    right: 12%;
+    top: 10%;
+  }
+
+  .skyline-far {
+    height: 48%;
+  }
+
+  .skyline-main {
+    height: 55%;
+  }
+
+  .skyline-front {
+    height: 60%;
+  }
+
+  .building {
+    margin-right: 6px;
+  }
+
+  .road {
+    height: 14%;
+  }
+
+  .road-line {
+    height: 2px;
+  }
+}
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+#playBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   LYRICS
+========================= */
+
+.lyrics-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  width: 340px;
+  z-index: 999;
+}
+
+#lyric {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.4;
+
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* =========================
+   CHORUS SLIDESHOW
+========================= */
+
+.slideshow {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+
+  width: 300px;
+  height: 380px;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  z-index: 998;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

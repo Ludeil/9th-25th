@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Night City Skyline</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Background Music -->
+    <audio id="bgMusic" src="music.mp3"></audio>
+
+    <!-- Play Button -->
+    <button id="playBtn">▶ Play Music</button>
+
+    <!-- Lyrics -->
+    <div class="lyrics-box">
+      <p id="lyric">Press Play</p>
+    </div>
+
+    <!-- Chorus Slideshow -->
+    <div id="slideshow" class="slideshow hidden">
+      <img id="slideImage" src="photos/photo(1).jpg" alt="Slideshow photo" />
+    </div>
+
+    <div class="city">
+      <!-- Night sky -->
+      <div class="sky">
+        <div class="moon"></div>
+
+        <div class="stars">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+      </div>
+
+      <!-- Far buildings -->
+      <div class="skyline skyline-far">
+        <div class="building b1"></div>
+        <div class="building b2"></div>
+        <div class="building b3"></div>
+        <div class="building b4"></div>
+        <div class="building b5"></div>
+        <div class="building b6"></div>
+        <div class="building b7"></div>
+        <div class="building b8"></div>
+        <div class="building b9"></div>
+        <div class="building b10"></div>
+      </div>
+
+      <!-- Main buildings -->
+      <div class="skyline skyline-main">
+        <div class="building m1"></div>
+        <div class="building m2"></div>
+        <div class="building m3"></div>
+        <div class="building m4"></div>
+        <div class="building m5"></div>
+        <div class="building m6"></div>
+        <div class="building m7"></div>
+        <div class="building m8"></div>
+      </div>
+
+      <!-- Foreground -->
+      <div class="skyline skyline-front">
+        <div class="building f1"></div>
+        <div class="building f2"></div>
+        <div class="building f3"></div>
+        <div class="building f4"></div>
+        <div class="building f5"></div>
+        <div class="building f6"></div>
+      </div>
+
+      <!-- Road -->
+      <div class="road">
+        <div class="road-line"></div>
+
+        <div class="car car-1"></div>
+        <div class="car car-2"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
